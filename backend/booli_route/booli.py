@@ -25,8 +25,9 @@ def get_listing(_id: str) -> PropertyResponse:
 
 @router.post("/query")
 def get_listings(query: Query) -> list[PropertyResponse]:
-    print(f"{LISTINGS_URL}?{query.build_params()}")
-    r = requests.get(f"{LISTINGS_URL}?{query.build_params()}")
+    url = f"{LISTINGS_URL}?{query.build_params()}"
+    print(url)
+    r = requests.get(url)
     r.raise_for_status()
     r_json = r.json()
 

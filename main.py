@@ -97,7 +97,7 @@ def main():
                         house_info_col, map_data_col = st.columns(2)
                         rows = [
                             f"**{house.objectType}** with {house.rooms} rooms ({house.livingArea} m²).  \n"
-                            f"Listing Price is {house.listPrice / 1e6} million SEK{rent}  \n",
+                            f"Listing Price is {(house.listPrice or 0) / 1e6} million SEK{rent}  \n",
                             f"[booli.se]({house.url})",
                         ]
                         with house_info_col:
